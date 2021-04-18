@@ -9,27 +9,36 @@ const TodoList = () => {
         console.log(todos);
     };
 
-    const toggleTodo = (id) => {
-        const newTodos = todos.map(x => {
-            if (x.id === id) {
-                return { ...x, isDone: !x.isDone }
-            } else {
-                return x
-            }
+    const deleteTodo = (id) => {
+        const newTodos = todos.filter((x) => x.id !== id)
+        setTodos(newTodos);
+    };
 
-        })
-        // console.log({ newTodos })
-        setTodos(newTodos)
-        // console.log(todo)
-        // console.log("working?")
-    }
+
+    const toggleTodo = (id) => {
+        const newTodos = todos.map((x) => {
+            if (x.id === id) {
+                return { ...x, isDone: !x.isDone };
+            } else {
+                return x;
+            }
+        });
+        setTodos(newTodos);
+    };
 
     return (
-        <div>
+        <div className="">
             <TodoInputBox handleEnter={addTodo} />
-            <div className="mt-6">
+            <div className="mt-6 border-solid border">
                 {todos.map((todo) => (
-                    <TodoItem key={todo.id} id={todo.id} isDone={todo.isDone} text={todo.text} toggleTodo={toggleTodo} />
+                    <TodoItem
+                        key={todo.id}
+                        id={todo.id}
+                        isDone={todo.isDone}
+                        text={todo.text}
+                        toggleTodo={toggleTodo}
+                        deleteTodo={deleteTodo}
+                    />
                 ))}
             </div>
         </div>

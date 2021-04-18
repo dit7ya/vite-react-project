@@ -6,7 +6,7 @@ const TodoInputBox = (props) => {
     return (
         <div className="">
             <input
-                className="bg-gray-300 rounded min-w-full pl-2 pt-1 pb-1 pr-2"
+                className="focus:outline-none focus:border-purple-900 bg-gray-100 rounded min-w-full pl-2 pt-1 pb-1 pr-2"
                 type="text"
                 placeholder="Type todo here..."
                 value={state}
