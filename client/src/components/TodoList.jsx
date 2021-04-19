@@ -29,7 +29,7 @@ const TodoList = () => {
     return (
         <div className="">
             <TodoInputBox handleEnter={addTodo} />
-            <div className="mt-6 border-solid border">
+            <div className="mt-6 rounded shadow divide-y divide-purple-100 ">
                 {todos.map((todo) => (
                     <TodoItem
                         key={todo.id}

@@ -8,7 +8,7 @@ import Auth from './components/auth/Auth';
 function App() {
 
   return (
-    <div className="p-6">
+    <div className="p-6 subpixel-antialiased">
       <div className="sm:w-1/2 m-auto">
         <nav className="flex justify-between">
           <h1 className="text-purple-300 font-bold self-center" > Todos App </h1>
