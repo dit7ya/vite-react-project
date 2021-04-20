@@ -4,7 +4,7 @@ import { uniqueId } from 'lodash'
 const TodoInputBox = (props) => {
     const [state, setState] = useState("");
     return (
-        <div className="">
+        <div className="text-gray-700">
             <input
                 className="focus:outline-none focus:border-purple-900 bg-gray-100 rounded min-w-full pl-2 pt-1 pb-1 pr-2"
                 type="text"

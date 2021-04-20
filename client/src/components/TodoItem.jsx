@@ -3,25 +3,25 @@ import CloseIcon from "./closeIcon";
 
 const TodoItem = (props) => {
     return (
-        <div className="flex justify-between pl-2 pr-2 p-1">
+        <div className="flex justify-between pl-2 pr-2">
             <div className="flex">
                 <input
                     type="checkbox"
                     checked={props.isDone}
                     onChange={() => props.toggleTodo(props.id)}
                 />
-                <h1
+                <span
                     className={
-                        "pl-2 " + (props.isDone ? "line-through italic text-gray-500" : "")
+                        `pl-2 text-sm ${(props.isDone ? "line-through italic text-gray-500" : "")}`
                     }
                 >
                     {props.text}
-                </h1>
+                </span>
             </div>
 
             <div>
                 <button
-                    className="focus:outline-none text-gray-300 hover:text-red-600 transform motion-safe:hover:scale-120 "
+                    className="focus:outline-none text-gray-300 hover:text-pink-600 transform motion-safe:hover:scale-120 "
                     onClick={() => props.deleteTodo(props.id)}
                 >
                     <CloseIcon />

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import TodoInputBox from "./TodoInputBox.jsx";
 import TodoItem from "./TodoItem";
+import Filter from "./Filter";
 
 const TodoList = () => {
+    const [filterState, setFilterState] = useState("all");
     const [todos, setTodos] = useState([]);
     const addTodo = (todo) => {
         setTodos([...todos, todo]);
@@ -10,10 +12,9 @@ const TodoList = () => {
     };
 
     const deleteTodo = (id) => {
-        const newTodos = todos.filter((x) => x.id !== id)
+        const newTodos = todos.filter((x) => x.id !== id);
         setTodos(newTodos);
     };
-
 
     const toggleTodo = (id) => {
         const newTodos = todos.map((x) => {
@@ -27,19 +28,33 @@ const TodoList = () => {
     };
 
     return (
-        <div className="">
+        <div className="text-gray-800">
             <TodoInputBox handleEnter={addTodo} />
-            <div className="mt-6 rounded shadow divide-y divide-purple-100 ">
-                {todos.map((todo) => (
-                    <TodoItem
-                        key={todo.id}
-                        id={todo.id}
-                        isDone={todo.isDone}
-                        text={todo.text}
-                        toggleTodo={toggleTodo}
-                        deleteTodo={deleteTodo}
-                    />
-                ))}
+
+            <Filter handleFilterState={setFilterState} />
+
+            <div className="mt-4 rounded shadow divide-y divide-purple-100 ">
+                {todos
+                    .filter((todo) => {
+                        /* console.log */
+                        if (filterState === "incomplete") {
+                            return !todo.isDone;
+                        } else if (filterState === "completed") {
+                            return todo.isDone;
+                        } else {
+                            return true;
+                        }
+                    })
+                    .map((todo) => (
+                        <TodoItem
+                            key={todo.id}
+                            id={todo.id}
+                            isDone={todo.isDone}
+                            text={todo.text}
+                            toggleTodo={toggleTodo}
+                            deleteTodo={deleteTodo}
+                        />
+                    ))}
             </div>
         </div>
     );
