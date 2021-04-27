@@ -15,7 +15,7 @@ const TodoInputBox = (props) => {
                 }}
                 onKeyPress={(event) => {
                     if (event.key === "Enter") {
-                        props.handleEnter({ isDone: false, text: state, id: nanoid() });
+                        props.handleEnter({ isDone: false, text: state, _id: nanoid() });
                         setState("");
                     }
                 }}

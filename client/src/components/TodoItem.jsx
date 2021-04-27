@@ -8,7 +8,7 @@ const TodoItem = (props) => {
                 <input
                     type="checkbox"
                     checked={props.isDone}
-                    onChange={() => props.toggleTodo(props.id)}
+                    onChange={() => props.toggleTodo(props._id)}
                 />
                 <span
                     className={
@@ -22,7 +22,7 @@ const TodoItem = (props) => {
             <div>
                 <button
                     className="focus:outline-none text-gray-300 hover:text-pink-600 transform motion-safe:hover:scale-120 "
-                    onClick={() => props.deleteTodo(props.id)}
+                    onClick={() => props.deleteTodo(props._id)}
                 >
                     <CloseIcon />
                 </button>
