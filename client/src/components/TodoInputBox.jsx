@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { uniqueId } from 'lodash'
+import { nanoid } from 'nanoid'
 
 const TodoInputBox = (props) => {
     const [state, setState] = useState("");
@@ -15,7 +15,7 @@ const TodoInputBox = (props) => {
                 }}
                 onKeyPress={(event) => {
                     if (event.key === "Enter") {
-                        props.handleEnter({ isDone: false, text: state, id: uniqueId() });
+                        props.handleEnter({ isDone: false, text: state, id: nanoid() });
                         setState("");
                     }
                 }}
