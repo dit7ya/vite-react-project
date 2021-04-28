@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import TodoInputBox from "./TodoInputBox.jsx";
 import TodoItem from "./TodoItem";
 import Filter from "./Filter";
+
+import { UserContext } from "../UserContext";
 
 import { createTodo, getAllTodos, updateTodo, removeTodo } from '../apicalls.js'
 
@@ -9,11 +11,13 @@ const TodoList = () => {
     const [filterState, setFilterState] = useState("all");
     const [todos, setTodos] = useState([]);
 
+    const { user, setUser } = useContext(UserContext);
+    console.log(user)
 
     useEffect(() => {
         getAllTodos().then((res) => setTodos(res.data))
 
-    }, []);
+    }, [user]);
 
 
     const addTodo = (todo) => {
