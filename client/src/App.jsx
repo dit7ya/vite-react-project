@@ -17,15 +17,15 @@ function App() {
       <div>
         <Router>
           <div className="mt-6 p-6 shadow subpixel-antialiased sm:w-1/2 m-auto">
-            <nav className="flex justify-between pb-4">
+            <nav className="flex justify-between border rounded mb-8 p-2">
               <div className="bg-purple-200 rounded pl-1 pr-1 text-sm text-gray-700">
                 <Link to="/">Home</Link>
               </div>
               <div className="bg-purple-200 rounded pl-1 pr-1 text-sm text-gray-700">
-
                 <Link to="/login">Account</Link>
               </div>
             </nav>
+
             <Switch>
               <Route path="/login">
                 <Login />

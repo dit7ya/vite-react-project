@@ -8,11 +8,10 @@ const Login = () => {
     const { user, setUser } = useContext(UserContext);
 
     // Dont show login if already logged in
-    //
     const handleLogout = () => {
         window.localStorage.removeItem("token");
         setUser(null);
-        // window.location.reload()
+        window.location.reload()
     };
 
     const formik = useFormik({
@@ -54,7 +53,7 @@ const Login = () => {
     }
 
     return (
-        <div className="flex items-center min-h-screen">
+        <div className="flex items-center ">
             <div className="sm:w-1/2 m-auto ">
                 <form
                     className="rounded bg-purple-100 p-4 shadow-lg"
