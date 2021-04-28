@@ -2,7 +2,7 @@ import axios from "axios";
 
 let uri;
 if (process.env.NODE_ENV == "production") {
-    uri = "https://mostlyvoid.xyz/api";
+    uri = "https://mostlyvoid.xyz/todos/api";
 
 } else if (process.env.NODE_ENV == "development") {
     uri = "http://localhost:3001/api";
