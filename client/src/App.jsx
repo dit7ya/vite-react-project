@@ -16,12 +16,13 @@ function App() {
     <UserContext.Provider value={{ user, setUser }}>
       <div>
         <Router>
-          <div className="p-6 subpixel-antialiased sm:w-1/2 m-auto">
+          <div className="mt-6 p-6 shadow subpixel-antialiased sm:w-1/2 m-auto">
             <nav className="flex justify-between pb-4">
-              <div className="bg-purple-200 rounded pl-1 pr-1">
+              <div className="bg-purple-200 rounded pl-1 pr-1 text-sm text-gray-700">
                 <Link to="/">Home</Link>
               </div>
-              <div className="bg-purple-200 rounded pl-1 pr-1">
+              <div className="bg-purple-200 rounded pl-1 pr-1 text-sm text-gray-700">
+
                 <Link to="/login">Account</Link>
               </div>
             </nav>

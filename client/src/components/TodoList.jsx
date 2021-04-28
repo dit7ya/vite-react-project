@@ -10,26 +10,20 @@ import { createTodo, getAllTodos, updateTodo, removeTodo } from '../apicalls.js'
 const TodoList = () => {
     const [filterState, setFilterState] = useState("all");
     const [todos, setTodos] = useState([]);
-
     const { user, setUser } = useContext(UserContext);
-    console.log(user)
 
     useEffect(() => {
         getAllTodos().then((res) => setTodos(res.data))
-
     }, [user]);
-
 
     const addTodo = (todo) => {
         setTodos([...todos, todo]);
         createTodo(todo).then(console.log)
-        // console.log(todos);
     };
 
     const deleteTodo = (_id) => {
         const newTodos = todos.filter((x) => x._id !== _id);
         setTodos(newTodos);
-        console.log("Todolist is sending ", _id)
         removeTodo(_id).then(console.log)
     };
 
@@ -43,10 +37,7 @@ const TodoList = () => {
             }
         });
         setTodos(newTodos);
-
         const updatedTodo = todos.find(x => x._id === _id)
-        // console.log(!updatedTodo["isDone"])
-        // console.log(updatedTodo)
         updatedTodo["isDone"] = !updatedTodo["isDone"]
         updateTodo(updatedTodo).then(console.log)
     };
@@ -54,10 +45,8 @@ const TodoList = () => {
     return (
         <div className="text-gray-800">
             <TodoInputBox handleEnter={addTodo} />
-
             <Filter handleFilterState={setFilterState} />
-
-            <div className="mt-4 rounded shadow div_ide-y div_ide-purple-100 ">
+            <div className="mt-4 rounded border divide-y divide-purple-100 ">
                 {todos
                     .filter((todo) => {
                         /* console.log */
